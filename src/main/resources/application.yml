@@ -1,0 +1,5 @@
+spring:
+  application:
+    name: URL-Shortner
+  profiles:
+    active:dev
