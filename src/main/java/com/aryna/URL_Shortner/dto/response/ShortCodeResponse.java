@@ -3,21 +3,12 @@ package com.aryna.URL_Shortner.dto.response;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
-import java.time.LocalDateTime;
-
 
 @Getter
 @AllArgsConstructor
-@NoArgsConstructor
 @Builder
-public class UrlStatusResponse {
-
+public class ShortCodeResponse {
     private String originalUrl;
-
+    private String shortUrl;
     private String shortCode;
-
-    private LocalDateTime createdAt;
-
-    private Long clickCount ;
 }
