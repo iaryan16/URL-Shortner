@@ -13,10 +13,11 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequiredArgsConstructor
+@RequestMapping("/shortner")
 public class Urlcontroller {
     private final UrlService urlService;
 
-    @PostMapping("/api/urls")
+    @PostMapping("/create-code")
     public ShortCodeResponse createShortUrl(@RequestBody @Valid CreateShortCode request){
         return urlService.createShortCode(request);
     }
@@ -30,8 +31,8 @@ public class Urlcontroller {
                 .build();
     }
 
-    @GetMapping("/{code}/stats")
-    public UrlStatusResponse getStats(@PathVariable String code){
+    @GetMapping("/{code}/status")
+    public UrlStatusResponse getStatus(@PathVariable String code){
         return  urlService.getUrlStatus(code);
     }
 }
