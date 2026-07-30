@@ -1,22 +1,36 @@
 package com.aryna.URL_Shortner.entity;
 
-import com.fasterxml.jackson.annotation.JsonTypeId;
-import jdk.jfr.DataAmount;
-import lombok.Data;
-import lombok.NonNull;
+import lombok.*;
+import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.index.Indexed;
+import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.time.Instant;
 import java.time.LocalDateTime;
+import java.time.OffsetDateTime;
 
-@Data
+@Document(collection = "url_mapping")
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class UrlMapping {
 
     @Id
     private String id;
 
-    @NonNull
     private String originalUrl;
-    private String shortUrl;
-    private LocalDateTime createdAt;
 
+    @Indexed(unique = true)
+    private String shortCode;
+
+    @CreatedDate
+    private Instant createdAt;
+
+    private OffsetDateTime expiryAt;
+
+    @Builder.Default
+    private Long clickCount = 0L;
 }
