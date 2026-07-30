@@ -1,5 +1,9 @@
 spring:
   application:
     name: URL-Shortner
+
   profiles:
-    active:dev
+    active: ${SPRING_PROFILES_ACTIVE:dev}
+
+server:
+  port: ${PORT:8080}
