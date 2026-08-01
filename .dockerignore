@@ -4,3 +4,8 @@ target
 .vscode
 *.iml
 README.md
+
+
+.gitignore
+Dockerfile*
+*.log
