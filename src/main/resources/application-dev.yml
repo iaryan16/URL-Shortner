@@ -4,4 +4,4 @@ spring:
       uri: mongodb://localhost:27017/url_shortener
 
 app:
-  base-url: ${APP_BASE_URL:http://localhost:8080}
+  base-url: http://localhost:8080
